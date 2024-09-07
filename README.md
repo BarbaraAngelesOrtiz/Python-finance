@@ -23,10 +23,8 @@ import matplotlib.pyplot as plt
 📌Define the list of stock tickers, "GOOGL" is for Google for example. Then define the time period and define the moving average periods for the RSI14, EMA20 and SMA20. To start create an empty DataFrame to store the indicators:
 
 tickers = [ "AAPL","MSFT", "GOOGL", "AMZN", "TSLA"]
-
 start_date = "2023-01-01"
 end_date = "2024-01-01"
-
 sma_period = 20
 ema_period = 20
 rsi_period = 14
@@ -40,7 +38,6 @@ for ticker in tickers:
     data[f'{ticker}_SMA_{sma_period}'] = data['Close'].rolling(window=sma_period).mean()
     data[f'{ticker}_EMA_{ema_period}'] = data['Close'].ewm(span=ema_period, adjust=False).mean()
     data[f'{ticker}_RSI_{rsi_period}'] = ta.rsi(data['Close'], length=rsi_period)
-    
     data[f'{ticker}_Signal'] = 'Hold'
     data.loc[data[f'{ticker}_RSI_{rsi_period}'] < 30, f'{ticker}_Signal'] = 'Buy'
     data.loc[data[f'{ticker}_RSI_{rsi_period}'] > 70, f'{ticker}_Signal'] = 'Sell'
@@ -55,10 +52,8 @@ for ticker in tickers:
 📌Finally, display the combined indicators data, save the combined indicators data to a CSV file and optional inform the user that the CSV has been saved.
 
  print(indicators_data.head(20))
-
 csv_filename = 'C:\Finance\Data.csv'
 indicators_data.to_csv(csv_filename)
-
 print(f"Indicators data saved to {csv_filename}")
 
 Here the results:

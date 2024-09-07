@@ -11,14 +11,13 @@ Many times I have wondered how to automate trading processes through programming
 
 📌First step Install Yahoo Finance Library:
 
-$ pip install yfinance
+    $ pip install yfinance
 
 In this tutorial, I will try to minimize the use of unnecessary libraries:
 
     import yfinance as yf
     import pandas_ta as ta
     import pandas as pd
-    import matplotlib.pyplot as plt
 
 📌Define the list of stock tickers, "GOOGL" is for Google for example. Then define the time period and define the moving average periods for the RSI14, EMA20 and SMA20. To start create an empty DataFrame to store the indicators:
 
@@ -31,7 +30,7 @@ In this tutorial, I will try to minimize the use of unnecessary libraries:
 
 indicators_data = pd.DataFrame()
 
- 📌Define the list of stock tickers, "GOOGL" is for Google for example. Then define the time period and define the moving average periods for the RSI, EMA and SMA. To start create an empty DataFrame to store the indicators:
+📌Loop through each ticker, download the data, and calculate the indicators for ticker in tickers. The next step is download the stock data and calculate the Simple Moving Average (SMA),the Exponential Moving Average (EMA) and RSI. Then initialize a 'Signal' column with 'Hold' as default, define the Buy and Sell conditions based on RSI and add the indicators data to the indicators_data DataFrame:
 
     for ticker in tickers:
         data = yf.download(ticker, start=start_date, end=end_date)
@@ -43,8 +42,7 @@ indicators_data = pd.DataFrame()
         data[f'{ticker}_Signal'] = 'Hold'
         data.loc[data[f'{ticker}_RSI_{rsi_period}'] < 30, f'{ticker}_Signal'] = 'Buy'
         data.loc[data[f'{ticker}_RSI_{rsi_period}'] > 70, f'{ticker}_Signal'] = 'Sell'
-    
-📌Loop through each ticker, download the data, and calculate the indicators for ticker in tickers. The next step is download the stock data and calculate the Simple Moving Average (SMA),the Exponential Moving Average (EMA) and RSI. Then initialize a 'Signal' column with 'Hold' as default, define the Buy and Sell conditions based on RSI and add the indicators data to the indicators_data DataFrame.
+
 
     if indicators_data.empty:
         indicators_data = data[[f'{ticker}_SMA_{sma_period}', f'{ticker}_EMA_{ema_period}', f'{ticker}_RSI_{rsi_period}', f'{ticker}_Signal']].copy()

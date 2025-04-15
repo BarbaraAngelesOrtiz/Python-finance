@@ -1,4 +1,4 @@
-# Python-finance
+# Trading Guide with Python
 ## How to Take Advantage of RSI and EMA
 
 Many times I have wondered how to automate trading processes through programming. After spending hours observing the charts and understanding the buying and selling conditions according to each sector, I soon learned that there is no secret formula that applies to all sectors. Each specific area of ​​action has a different statistical behavior and I will continue to modify my formula by trial and error, but it would be much easier with indicators that would serve as Flags. So I got to work and found two main tools, there are several but I felt confortable with them, the Yahoo Finance library and online spreadsheets Google Sheet to work online with my partner. For now I will share codes analyzing these two assumptions, creating a CSV file which will then be automatically loaded into my online spreadsheet through a script. Indicators that I will explain and calcule by python:

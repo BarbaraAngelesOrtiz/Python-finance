@@ -70,3 +70,14 @@ This article is in no way a financial advice or a suggestion on when to enter or
 Have fun playing around and generating more indicators and use them wherever it suits you best. 
 
 Cheers!
+
+  ## Author
+**Bárbara Ángeles Ortiz**
+
+ <img src="https://avatars.githubusercontent.com/u/105976212?v=4" width=115><br><sub></sub>
+
+[LinkedIn](https://www.linkedin.com/in/barbaraangelesortiz/) | [GitHub](https://github.com/BarbaraAngelesOrtiz)
+
+![Status](https://img.shields.io/badge/status-finished-brightgreen)
+
+![Python](https://img.shields.io/badge/python-3.10-blue)
